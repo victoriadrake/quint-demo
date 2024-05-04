@@ -1,0 +1,7 @@
+[build]
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.123.3"
+  NODE_VERSION = "19.6.0"
+  NPM_VERSION = "9.4.0"
