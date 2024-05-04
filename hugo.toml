@@ -1,0 +1,12 @@
+baseURL = 'https://quint-theme-demo.netlify.app/'
+languageCode = 'en-us'
+title = 'Quint'
+theme = "quint"
+summaryLength = 20                  # Number of characters in your card summaries
+
+[[menus.main]]
+name = 'GitHub'
+url = 'https://github.com/victoriadrake/hugo-theme-quint'
+
+[markup.goldmark.renderer]
+    unsafe = true
