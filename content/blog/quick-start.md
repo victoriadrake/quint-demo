@@ -48,3 +48,11 @@ hugo server
 ```
 
 Navigate to `http://localhost:1313` in your web browser to see your site in action with the Quint theme.
+
+### Get Updates
+
+To download the latest version of Quint, run:
+
+```bash
+git submodule update --remote themes/quint
+```

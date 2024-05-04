@@ -1,0 +1,20 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: #252627;
+        --primary-text: #fff;
+        --secondary-text: #fefefe;
+        --link-color: #b8bcc0;
+    }
+    img {
+        opacity: 90%;
+    }
+}
+
+a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: var(--primary-text);
+}
