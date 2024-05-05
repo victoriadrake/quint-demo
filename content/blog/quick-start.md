@@ -1,9 +1,8 @@
 ---
 title: "Quick Start"
-date: 2024-05-03T14:22:24-05:00
+date: "2024-05-05T11:29:04.049Z"
 draft: false
-image: ''
-description:
+description: "To get started with Quint, you need to have Hugo installed on your machine. For more information on installing Hugo, check out the o..."
 ---
 
 To get started with Quint, you need to have Hugo installed on your machine. For more information on installing Hugo, check out the [official Hugo documentation](https://gohugo.io/getting-started/installing/).
@@ -55,3 +54,4 @@ To download the latest version of Quint, run:
 ```bash
 git submodule update --remote themes/quint
 ```
+

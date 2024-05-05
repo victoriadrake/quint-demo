@@ -1,0 +1,28 @@
+{
+  "name": "quint-demo",
+  "version": "1.0.0",
+  "description": "A Hugo + Collected Notes static website template.",
+  "scripts": {
+    "start": "hugo server --disableFastRender",
+    "prebuild": "node utils/fetch-posts.js",
+    "build": "hugo --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoriadrake/quint-demo.git"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "hugo",
+    "collected",
+    "notes",
+    "cms"
+  ],
+  "author": "Victoria Drake",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victoriadrake/quint-demo/issues"
+  },
+  "homepage": "https://github.com/victoriadrake/quint-demo#readme"
+}
