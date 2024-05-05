@@ -15,10 +15,18 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 'latest'  # Specify the Node.js version you need
+        node-version: 'latest'  # Using the latest stable Node.js version
 
     - name: Install Dependencies
       run: npm install
+
+    - name: Install Hugo
+      run: |
+        sudo apt-get install jq
+        HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r '.tag_name')
+        curl -sSL "https://github.com/gohugoio/hugo/releases/download/${HUGO_VERSION}/hugo_extended_${HUGO_VERSION:1}_linux-amd64.deb" -o hugo.deb
+        sudo dpkg -i hugo.deb
+        hugo version
 
     - name: Run Build
       run: npm run build
