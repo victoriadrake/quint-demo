@@ -27,18 +27,43 @@ fs.mkdir(CONTENT_DIR, { recursive: true }, (err) => {
             // Create markdown files for each post
             posts.forEach(post => {
                 const filePath = path.join(CONTENT_DIR, `${post.path}.md`);
+                
+                // Check if the body contains front matter already
+                const hasFrontMatter = post.body.startsWith('---');
 
-                // Split the body into lines, remove the first line, and rejoin the rest
-                const bodyWithoutTitle = post.body.split('\n').slice(1).join('\n');
+                let content;
+                if (!hasFrontMatter) {
+                    // Split the body into lines
+                    const bodyLines = post.body.split('\n');
+                    
+                    // Remove the first line if it's a title
+                    if (bodyLines[0].startsWith('# ')) {
+                        bodyLines.splice(0, 1);
+                    }
 
-                const content = `---
+                    content = `---
 title: "${post.title.replace(/"/g, '\\"')}"
 date: "${new Date(post.updated_at).toISOString()}"
 draft: false
 description: "${post.headline.replace(/"/g, '\\"')}"
 ---
-${bodyWithoutTitle}
+${bodyLines.join('\n')}
 `;
+                } else {
+                    // Process the post body to find and remove the title line following the front matter
+                    const bodyLines = post.body.split('\n');
+                    const endFrontMatterIndex = bodyLines.indexOf('---', 1); // Find the end of the front matter block
+
+                    // Check the next three lines for a title
+                    for (let i = endFrontMatterIndex + 1; i <= endFrontMatterIndex + 3; i++) {
+                        if (bodyLines[i] && bodyLines[i].startsWith('# ')) {
+                            bodyLines.splice(i, 1); // Remove the title line
+                            break; // Remove only the first title found
+                        }
+                    }
+
+                    content = bodyLines.join('\n');
+                }
 
                 fs.writeFileSync(filePath, content, 'utf8');
             });
