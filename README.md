@@ -29,10 +29,10 @@ Ensure you have the following installed:
 
 ### 2. Clone the Repository
 
-Clone this repository to get the content and configuration of the demo site:
+Clone this repository to get the content and configuration of the demo site, and fill the theme submodule:
 
 ```bash
-git clone https://github.com/victoriadrake/quint-demo.git
+git clone --recurse-submodules -j8 https://github.com/victoriadrake/quint-demo.git
 ```
 
 ### 3. Run Locally
