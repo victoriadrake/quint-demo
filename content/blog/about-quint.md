@@ -1,6 +1,6 @@
 ---
 title: "About Quint"
-date: "2024-05-05T18:40:13.745Z"
+date: "2024-05-06T01:40:13.745Z"
 draft: false
 description: "Welcome to Quint, a Hugo theme designed for those who appreciate simplicity and elegance. Quint strips away the unnecessary, foc..."
 ---
@@ -18,6 +18,10 @@ Quint uses the [Open Sauce Font](https://github.com/marcologous/Open-Sauce-Fonts
 ### Light, Airy Color Palette
 
 Using a palette that echoes the tranquility of early morning skies, Quint offers a refreshing visual experience. The soft greys and whites provide a backdrop that complements rather than competes with your images and text, creating a serene user experience.
+
+## Table of Contents
+
+An optional Table of Contents automatically appears as a side bar on any post with multiple headings.
 
 ## Responsive and Adaptive
 
