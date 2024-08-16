@@ -1,10 +1,16 @@
 ---
+<<<<<<< HEAD
 title: "Exploring Markdown: A Comprehensive Guide"
 date: "2024-05-05T18:28:34.730Z"
+=======
+title: 'Exploring Markdown: A Comprehensive Guide'
+date: '2024-05-05T18:28:34.730Z'
+>>>>>>> bdf65cc (Update docs)
 draft: false
-description: "Welcome to this comprehensive guide on Markdown! Markdown is a lightweight markup language that allows..."
+description: >-
+  Welcome to this comprehensive guide on Markdown! Markdown is a lightweight
+  markup language that allows...
 ---
-
 Welcome to this comprehensive guide on Markdown! Markdown is a lightweight markup language that allows you to add formatting elements to plain text. In this post, we'll explore various Markdown elements and how they can be used to structure and style your content effectively.
 
 ## Why Use Markdown?
@@ -103,4 +109,3 @@ Tables are created using a combination of pipes `|` and dashes `-`. Align text b
 ## Conclusion
 
 Markdown is an essential tool for web developers, writers, and anyone who needs to efficiently create formatted text online. By mastering Markdown, you enhance both your productivity and the readability of your text.
-

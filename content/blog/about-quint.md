@@ -1,10 +1,16 @@
 ---
+<<<<<<< HEAD
 title: "About Quint"
 date: "2024-05-06T01:40:13.745Z"
+=======
+title: About Quint
+date: '2024-05-06T01:40:13.745Z'
+>>>>>>> bdf65cc (Update docs)
 draft: false
-description: "Welcome to Quint, a Hugo theme designed for those who appreciate simplicity and elegance. Quint strips away the unnecessary, foc..."
+description: >-
+  Welcome to Quint, a Hugo theme designed for those who appreciate simplicity
+  and elegance. Quint strips away the unnecessary, foc...
 ---
-
 Welcome to **Quint**, a Hugo theme designed for those who appreciate simplicity and elegance. Quint strips away the unnecessary, focusing on what's essential to create a light, airy, and highly readable web experience.
 
 ## Minimalist Design
@@ -46,4 +52,3 @@ Ready to transform your blog or website with Quint? Here’s how you can get sta
 ## Join Our Community
 
 We invite you to join our community of Quint users. Share your experiences, get support, and stay updated on new features and updates. Your feedback helps us improve and grow Quint, shaping it into the most user-friendly Hugo theme ever.
-

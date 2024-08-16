@@ -4,6 +4,9 @@ title = 'Quint'
 theme = "quint"
 summaryLength = 20                  # Number of characters in your card summaries
 
+[params]
+useToc = true
+
 [[menus.main]]
 name = 'GitHub'
 url = 'https://github.com/victoriadrake/hugo-theme-quint'

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const https = require('https');
 const path = require('path');
+const yaml = require('js-yaml');
 
 // TODO: Change "quint" below to your Collected Notes site name
 const API_URL = 'https://collectednotes.com/quint.json';
@@ -31,41 +32,65 @@ fs.mkdir(CONTENT_DIR, { recursive: true }, (err) => {
                 // Check if the body contains front matter already
                 const hasFrontMatter = post.body.startsWith('---');
 
-                let content;
-                if (!hasFrontMatter) {
-                    // Split the body into lines
-                    const bodyLines = post.body.split('\n');
-                    
-                    // Remove the first line if it's a title
-                    if (bodyLines[0].startsWith('# ')) {
-                        bodyLines.splice(0, 1);
-                    }
+                let frontMatter = {};
+                let contentBody = post.body;
+                const postDate = new Date(post.updated_at);
 
-                    content = `---
-title: "${post.title.replace(/"/g, '\\"')}"
-date: "${new Date(post.updated_at).toISOString()}"
-draft: false
-description: "${post.headline.replace(/"/g, '\\"')}"
----
-${bodyLines.join('\n')}
-`;
-                } else {
-                    // Process the post body to find and remove the title line following the front matter
-                    const bodyLines = post.body.split('\n');
-                    const endFrontMatterIndex = bodyLines.indexOf('---', 1); // Find the end of the front matter block
-
-                    // Check the next three lines for a title
-                    for (let i = endFrontMatterIndex + 1; i <= endFrontMatterIndex + 3; i++) {
-                        if (bodyLines[i] && bodyLines[i].startsWith('# ')) {
-                            bodyLines.splice(i, 1); // Remove the title line
-                            break; // Remove only the first title found
-                        }
-                    }
-
-                    content = bodyLines.join('\n');
-                }
-
-                fs.writeFileSync(filePath, content, 'utf8');
+                 // Split the body into lines
+                 const bodyLines = post.body.split('\n');
+ 
+                 // Check if the body contains front matter already
+                 if (post.body.startsWith('---')) {
+                     // Extract existing front matter
+                     const bodyLines = post.body.split('\n');
+                     const endFrontMatterIndex = bodyLines.indexOf('---', 1);
+                     const frontMatterLines = bodyLines.slice(1, endFrontMatterIndex);
+                     frontMatter = yaml.load(frontMatterLines.join('\n'));
+ 
+                     // Update content body without front matter
+                     contentBody = bodyLines.slice(endFrontMatterIndex + 1).join('\n');
+                 }
+ 
+                 // At this point, `contentBody` contains the body without front matter
+                 console.log(contentBody)
+                 // At this point, `contentBody` contains the body without front matter
+                 let contentLines = contentBody.split('\n');
+ 
+                 // Remove leading empty lines only
+                 while (contentLines.length > 0 && contentLines[0].trim() === '') {
+                     contentLines.shift(); // Remove the first line if it's empty
+                 }
+ 
+                 // Now check if the first non-empty line is a title (i.e., starts with '# ')
+                 if (contentLines[0] && contentLines[0].startsWith('# ')) {
+                     contentLines = contentLines.slice(1); // Remove the title line
+                 }
+ 
+                 // Rejoin the remaining lines into the final content body
+                 contentBody = contentLines.join('\n');
+ 
+                 console.log(contentLines)
+ 
+ 
+                 // Merge with new front matter
+                 frontMatter.title = post.title.replace(/"/g, '\\"');
+                 frontMatter.date = postDate.toISOString();
+                 frontMatter.draft = false;
+                 if (post.headline) {
+                     frontMatter.description = post.headline.replace(/"/g, '\\"');
+                 }
+ 
+                 // Convert merged front matter back to YAML format
+                 const mergedFrontMatter = yaml.dump(frontMatter);
+ 
+                 // Final content with merged front matter
+                 const content = `---
+ ${mergedFrontMatter.trim()}
+ ---
+ ${contentBody.trim()}
+ `;
+ 
+                 fs.writeFileSync(filePath, content, 'utf8');
             });
         });
     }).on('error', (e) => {

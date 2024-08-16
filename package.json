@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/victoriadrake/quint-demo/issues"
   },
-  "homepage": "https://github.com/victoriadrake/quint-demo#readme"
+  "homepage": "https://github.com/victoriadrake/quint-demo#readme",
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
 }
