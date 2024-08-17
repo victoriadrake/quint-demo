@@ -6,6 +6,7 @@ summaryLength = 20                  # Number of characters in your card summarie
 
 [params]
 useToc = true
+description = 'Demo site for the Hugo theme Quint.'
 
 [[menus.main]]
 name = 'GitHub'
