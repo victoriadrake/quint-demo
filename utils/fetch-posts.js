@@ -52,8 +52,6 @@ fs.mkdir(CONTENT_DIR, { recursive: true }, (err) => {
                  }
  
                  // At this point, `contentBody` contains the body without front matter
-                 console.log(contentBody)
-                 // At this point, `contentBody` contains the body without front matter
                  let contentLines = contentBody.split('\n');
  
                  // Remove leading empty lines only
@@ -69,9 +67,6 @@ fs.mkdir(CONTENT_DIR, { recursive: true }, (err) => {
                  // Rejoin the remaining lines into the final content body
                  contentBody = contentLines.join('\n');
  
-                 console.log(contentLines)
- 
- 
                  // Merge with new front matter
                  frontMatter.title = post.title.replace(/"/g, '\\"');
                  frontMatter.date = postDate.toISOString();
@@ -85,13 +80,14 @@ fs.mkdir(CONTENT_DIR, { recursive: true }, (err) => {
  
                  // Final content with merged front matter
                  const content = `---
- ${mergedFrontMatter.trim()}
- ---
- ${contentBody.trim()}
- `;
+${mergedFrontMatter.trim()}
+---
+${contentBody.trim()}
+`;
  
                  fs.writeFileSync(filePath, content, 'utf8');
-            });
+                 console.log(`Successfully fetched and saved post: ${frontMatter.title}`)
+                });
         });
     }).on('error', (e) => {
         console.error(`Failed to fetch posts: ${e.message}`);

@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
-title: "Exploring Markdown: A Comprehensive Guide"
-date: "2024-05-05T18:28:34.730Z"
-=======
 title: 'Exploring Markdown: A Comprehensive Guide'
 date: '2024-05-05T18:28:34.730Z'
->>>>>>> bdf65cc (Update docs)
 draft: false
 description: >-
   Welcome to this comprehensive guide on Markdown! Markdown is a lightweight

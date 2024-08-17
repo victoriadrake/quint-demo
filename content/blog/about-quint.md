@@ -1,11 +1,6 @@
 ---
-<<<<<<< HEAD
-title: "About Quint"
-date: "2024-05-06T01:40:13.745Z"
-=======
 title: About Quint
 date: '2024-05-06T01:40:13.745Z'
->>>>>>> bdf65cc (Update docs)
 draft: false
 description: >-
   Welcome to Quint, a Hugo theme designed for those who appreciate simplicity
