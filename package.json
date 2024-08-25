@@ -4,7 +4,7 @@
   "description": "A Hugo + Collected Notes static website template.",
   "scripts": {
     "start": "hugo server --disableFastRender",
-    "prebuild": "node utils/fetch-posts.js",
+    "prebuild": "npm i && git submodule update --init --recursive && node utils/fetch-posts.js",
     "build": "hugo --minify"
   },
   "repository": {
