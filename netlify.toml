@@ -1,4 +1,5 @@
 [build]
+  command = "git submodule sync --recursive && git submodule update --init --recursive --remote --merge && hugo"
   publish = "public"
 
 [build.environment]

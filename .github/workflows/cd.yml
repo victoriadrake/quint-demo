@@ -29,8 +29,9 @@ jobs:
         sudo dpkg -i hugo.deb
         hugo version
 
-    - name: Update Submodules to Latest
+    - name: Point theme submodule at latest
       run: |
+        git submodule sync --recursive
         git submodule update --init --recursive --remote
 
     - name: Run Build
